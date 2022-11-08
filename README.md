@@ -7,6 +7,11 @@
 * [`connect(...)`](#connect)
 * [`connectPrefix(...)`](#connectprefix)
 * [`disconnect()`](#disconnect)
+* [`getScanResults(...)`](#getscanresults)
+* [`addListener('wifiStatusChange', ...)`](#addlistenerwifistatuschange)
+* [`removeAllListeners()`](#removealllisteners)
+* [Interfaces](#interfaces)
+* [Type Aliases](#type-aliases)
 
 </docgen-index>
 
@@ -72,5 +77,70 @@ disconnect() => Promise<void>
 ```
 
 --------------------
+
+
+### getScanResults(...)
+
+```typescript
+getScanResults(filter?: string | undefined) => Promise<{ ssids: any[]; }>
+```
+
+| Param        | Type                |
+| ------------ | ------------------- |
+| **`filter`** | <code>string</code> |
+
+**Returns:** <code>Promise&lt;{ ssids: any[]; }&gt;</code>
+
+--------------------
+
+
+### addListener('wifiStatusChange', ...)
+
+```typescript
+addListener(eventName: "wifiStatusChange", listenerFunc: WifiStatusChangeListener) => Promise<PluginListenerHandle> & PluginListenerHandle
+```
+
+| Param              | Type                                                                          |
+| ------------------ | ----------------------------------------------------------------------------- |
+| **`eventName`**    | <code>'wifiStatusChange'</code>                                               |
+| **`listenerFunc`** | <code><a href="#wifistatuschangelistener">WifiStatusChangeListener</a></code> |
+
+**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+
+--------------------
+
+
+### removeAllListeners()
+
+```typescript
+removeAllListeners() => Promise<void>
+```
+
+--------------------
+
+
+### Interfaces
+
+
+#### PluginListenerHandle
+
+| Prop         | Type                                      |
+| ------------ | ----------------------------------------- |
+| **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
+
+
+#### WifiStatus
+
+| Prop            | Type                 |
+| --------------- | -------------------- |
+| **`connected`** | <code>boolean</code> |
+
+
+### Type Aliases
+
+
+#### WifiStatusChangeListener
+
+<code>(status: <a href="#wifistatus">WifiStatus</a>): void</code>
 
 </docgen-api>
